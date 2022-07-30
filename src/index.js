@@ -50,12 +50,18 @@ function decode(expr) {
         return j.replace(/00/g, '').replace(/11/g, '-').replace(/10/g, '.')
     })
 
-
-    return repl;
+    res = repl.map(k=>{
+        if(k === '**********'){
+            return k = ' ';
+        } else {
+            return k = MORSE_TABLE[k]
+        }
+    })
+    return res.join('');
 }
 
-//module.exports = {
-//    decode
-//}
+module.exports = {
+    decode
+}
 
-console.log(decode('00000011110000000010'));
+//console.log(decode('00000011110000000010'));
